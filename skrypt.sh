@@ -1,11 +1,19 @@
 #!/bin/bash
 
-now="$(date)"
-echo $(date)
+data()
+{
+currentDate=`date +%m-%d-%Y`
+echo $currentDate
+   exit 0
+}
 
-exit 0
 
 
+for i in "$@"; do
+  case $i in
+    --data) data;;
 
-#now="$(date)"
-#echo "-d was triggered, Current date: " echo $(date)
+    *)
+  esac
+done
+
