@@ -1,5 +1,15 @@
 #!/bin/bash
 
+help()
+{
+   echo "Available commands:"
+   echo "--help - Show this message"
+   echo "--data - Show current date"
+   echo "--logs - Create 100 log files"
+   exit 0
+}
+
+
 data()
 {
 currentDate=`date +%m-%d-%Y`
@@ -25,11 +35,20 @@ done
 
 
 
+
 for i in "$@"; do
   case $i in
     --data) data;;
     --logs) logs;;
+    --help) help;;
     *)
+	echo "Unknown command: $i"
+        help
+        ;;
   esac
 done
 
+if [ $# -eq 0 ]; then
+    echo "No arguments provided"
+    help
+fi
