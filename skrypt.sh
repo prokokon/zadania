@@ -1,6 +1,7 @@
 #!/bin/bash
 
-$ ./skrypt.sh --arg-one "apple" --arg-two "orange" --arg-three "banana"
+now="$(date)"
+echo $(date)
 
 exit 0
 
